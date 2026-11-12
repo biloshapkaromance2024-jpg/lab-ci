@@ -1,6 +1,9 @@
-import pytest
 from unittest.mock import Mock
-from shop.cart import Cart, Item
+
+import pytest
+
+from shop.cart import Cart
+
 
 def test_empty_cart_initial_state() -> None:
     cart = Cart()
@@ -51,7 +54,7 @@ def test_total_invalid_discount_raises_valueerror(my_cart: Cart, invalid_discoun
 def test_total_in_foreign_currency(my_cart: Cart) -> None:
     rates = Mock()
     rates.get_rate.return_value = 40.0  # Підміна: 1 EUR = 40 UAH
-    
+
     # 1600 UAH / 40 = 40.0 EUR
     assert my_cart.total_in("EUR", rates) == 40.0
     rates.get_rate.assert_called_once_with("EUR")
