@@ -4,14 +4,16 @@ from typing import Protocol
 
 class RateProvider(Protocol):
     """Джерело курсів валют: скільки гривень коштує 1 одиниця валюти."""
-    def get_rate(self, currency: str) -> float:
-        ...
+
+    def get_rate(self, currency: str) -> float: ...
+
 
 @dataclass
 class Item:
     name: str
     price: float
     qty: int
+
 
 class Cart:
     def __init__(self) -> None:
@@ -46,6 +48,7 @@ class Cart:
         if rate <= 0:
             raise ValueError("rate must be positive")
         return round(self.total() / rate, 2)
+
     def most_expensive(self) -> Item | None:
         if not self._items:
             return None
