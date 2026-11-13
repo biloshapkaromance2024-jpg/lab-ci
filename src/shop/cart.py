@@ -1,4 +1,3 @@
-import sys
 from dataclasses import dataclass
 from typing import Protocol
 
@@ -6,7 +5,7 @@ from typing import Protocol
 class RateProvider(Protocol):
     """Джерело курсів валют: скільки гривень коштує 1 одиниця валюти."""
 
-     def get_rate(self, currency: str) -> float: ...
+    def get_rate(self, currency: str) -> float: ...
 
 
 @dataclass
