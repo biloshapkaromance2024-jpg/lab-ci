@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 from typing import Protocol
 
-def format_total(self) -> str:
-        return self.total()
+
 class RateProvider(Protocol):
     """Джерело курсів валют: скільки гривень коштує 1 одиниця валюти."""
 
